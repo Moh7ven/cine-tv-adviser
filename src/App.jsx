@@ -11,18 +11,34 @@ import { TVAdviserListItem } from "./components/TVAdviserListItem/TVAdviserListI
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
 
+  const [recommendationList, setRecommendationList] = useState([]);
+
   const fetchPopular = async () => {
     const popular = await TVShowAPI.fetchPopular();
     setCurrentTVAdviser(popular[0]);
   };
 
+  const fetchRecommendations = async (tvAdviserId) => {
+    const recommendations = await TVShowAPI.fetchRecommendations(tvAdviserId);
+    if (recommendations.length > 10) {
+      setRecommendationList(recommendations.slice(0, 10));
+    }
+  };
+
   useEffect(() => {
     fetchPopular();
   }, []);
+
+  useEffect(() => {
+    if (currentTVAdviser) {
+      fetchRecommendations(currentTVAdviser.id);
+    }
+  }, [currentTVAdviser]);
   function setCurrentTVAdviserFromRecommendation(tvAdviser) {
     alert(JSON.stringify(tvAdviser));
   }
 
+  console.log(recommendationList);
   return (
     <div
       className={s.main_container}
