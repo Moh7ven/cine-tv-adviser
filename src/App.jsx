@@ -3,6 +3,7 @@ import { TVShowAPI } from "./api/tv-advise";
 import "./global.css";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
+import { TVAdviserDetail } from "./components/TVAdviserDetail/TVAdviserDetail";
 
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
@@ -37,7 +38,9 @@ export function App() {
           </div>
         </div>
       </div>
-      <div className={s.tv_advise_detail}>Details</div>
+      <div className={s.tv_advise_detail}>
+        {currentTVAdviser && <TVAdviserDetail tvAdviser={currentTVAdviser} />}
+      </div>
       <div className={s.recommendations}>Recommendations</div>
     </div>
   );
