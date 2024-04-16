@@ -4,6 +4,8 @@ import "./global.css";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { TVAdviserDetail } from "./components/TVAdviserDetail/TVAdviserDetail";
+import { Logo } from "./components/Logo/Logo";
+import logo from "./assets/images/logo.png";
 
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
@@ -30,8 +32,11 @@ export function App() {
       <div className={s.header}>
         <div className="row">
           <div className="col-4">
-            <div>Logo</div>
-            <div>Subtitle</div>
+            <Logo
+              title=" Cine TV Adviser"
+              image={logo}
+              subtitle="Find a show you may like"
+            />
           </div>
           <div className="col-sm-12 col-md-4">
             <input style={{ width: "100%" }} type="text" />
