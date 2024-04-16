@@ -6,6 +6,7 @@ import { BACKDROP_BASE_URL } from "./config";
 import { TVAdviserDetail } from "./components/TVAdviserDetail/TVAdviserDetail";
 import { Logo } from "./components/Logo/Logo";
 import logo from "./assets/images/logo.png";
+import { TVAdviserListItem } from "./components/TVAdviserListItem/TVAdviserListItem";
 
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
@@ -18,7 +19,9 @@ export function App() {
   useEffect(() => {
     fetchPopular();
   }, []);
-  console.log(currentTVAdviser);
+  function setCurrentTVAdviserFromRecommendation(tvAdviser) {
+    alert(JSON.stringify(tvAdviser));
+  }
 
   return (
     <div
@@ -46,7 +49,14 @@ export function App() {
       <div className={s.tv_advise_detail}>
         {currentTVAdviser && <TVAdviserDetail tvAdviser={currentTVAdviser} />}
       </div>
-      <div className={s.recommendations}>Recommendations</div>
+      <div className={s.recommendations}>
+        {currentTVAdviser && (
+          <TVAdviserListItem
+            onClick={setCurrentTVAdviserFromRecommendation}
+            tvAdviser={currentTVAdviser}
+          />
+        )}
+      </div>
     </div>
   );
 }
