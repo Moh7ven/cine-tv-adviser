@@ -6,7 +6,6 @@ import { BACKDROP_BASE_URL } from "./config";
 import { TVAdviserDetail } from "./components/TVAdviserDetail/TVAdviserDetail";
 import { Logo } from "./components/Logo/Logo";
 import logo from "./assets/images/logo.png";
-import { TVAdviserListItem } from "./components/TVAdviserListItem/TVAdviserListItem";
 import { TVAdviserList } from "./components/TVAdviserList/TVAdviserList";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 
