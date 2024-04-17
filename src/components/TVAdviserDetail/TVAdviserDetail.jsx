@@ -3,7 +3,7 @@ import s from "./style.module.css";
 import { FiveStarRating } from "../FiveStarRating/FiveStarRating";
 
 export function TVAdviserDetail({ tvAdviser }) {
-  const rating = tvAdviser.vote_average / 2;
+  const rating = (tvAdviser.vote_average / 2).toFixed(2);
   return (
     <div>
       <div className={s.title}>{tvAdviser.name}</div>
