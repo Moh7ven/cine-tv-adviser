@@ -7,6 +7,7 @@ import { TVAdviserDetail } from "./components/TVAdviserDetail/TVAdviserDetail";
 import { Logo } from "./components/Logo/Logo";
 import logo from "./assets/images/logo.png";
 import { TVAdviserListItem } from "./components/TVAdviserListItem/TVAdviserListItem";
+import { TVAdviserList } from "./components/TVAdviserList/TVAdviserList";
 
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
@@ -66,10 +67,10 @@ export function App() {
         {currentTVAdviser && <TVAdviserDetail tvAdviser={currentTVAdviser} />}
       </div>
       <div className={s.recommendations}>
-        {currentTVAdviser && (
-          <TVAdviserListItem
-            onClick={setCurrentTVAdviserFromRecommendation}
-            tvAdviser={currentTVAdviser}
+        {recommendationList && recommendationList.length > 0 && (
+          <TVAdviserList
+            onClickItem={setCurrentTVAdviser}
+            tvAdviserList={recommendationList}
           />
         )}
       </div>
