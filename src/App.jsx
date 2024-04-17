@@ -36,11 +36,13 @@ export function App() {
       fetchRecommendations(currentTVAdviser.id);
     }
   }, [currentTVAdviser]);
-  function setCurrentTVAdviserFromRecommendation(tvAdviser) {
-    alert(JSON.stringify(tvAdviser));
+  async function searchTVAdviser(tvAdviserName) {
+    const searchResponse = await TVShowAPI.fetchByTitle(tvAdviserName);
+    if (searchResponse.length > 0) {
+      setCurrentTVAdviser(searchResponse[0]);
+    }
   }
 
-  console.log(recommendationList);
   return (
     <div
       className={s.main_container}
@@ -61,7 +63,7 @@ export function App() {
           </div>
           <div className="col-sm-12 col-md-4">
             {/* <input style={{ width: "100%" }} type="text" /> */}
-            <SearchBar />
+            <SearchBar onSubmit={searchTVAdviser} />
           </div>
         </div>
       </div>
