@@ -69,7 +69,22 @@ export function App() {
       </div>
       <div className={s.tv_advise_detail}>
         {currentTVAdviser && <TVAdviserDetail tvAdviser={currentTVAdviser} />}
+        {currentTVAdviser && currentTVAdviser.adult !== false && (
+          <span
+            style={{
+              color: "white",
+              height: "300px",
+              width: "400px",
+              backgroundColor: "red",
+              padding: "7px",
+              borderRadius: "10px",
+            }}
+          >
+            Adult content
+          </span>
+        )}
       </div>
+
       <div className={s.recommendations}>
         {recommendationList && recommendationList.length > 0 && (
           <TVAdviserList
