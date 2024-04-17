@@ -8,6 +8,7 @@ import { Logo } from "./components/Logo/Logo";
 import logo from "./assets/images/logo.png";
 import { TVAdviserListItem } from "./components/TVAdviserListItem/TVAdviserListItem";
 import { TVAdviserList } from "./components/TVAdviserList/TVAdviserList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 export function App() {
   const [currentTVAdviser, setCurrentTVAdviser] = useState();
@@ -59,7 +60,8 @@ export function App() {
             />
           </div>
           <div className="col-sm-12 col-md-4">
-            <input style={{ width: "100%" }} type="text" />
+            {/* <input style={{ width: "100%" }} type="text" /> */}
+            <SearchBar />
           </div>
         </div>
       </div>
