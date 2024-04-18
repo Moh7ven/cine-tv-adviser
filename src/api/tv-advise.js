@@ -9,6 +9,7 @@ export class TVShowAPI {
   }
 
   static async fetchRecommendations(tvAdviser) {
+    // Fonction pour récupérer les recommandations d'un tv-adviser
     const response = await axios.get(
       `${BASE_URL}tv/${tvAdviser}/recommendations${API_KEY_PARAM}`
     );
