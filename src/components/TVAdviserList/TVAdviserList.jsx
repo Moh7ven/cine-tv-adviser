@@ -4,7 +4,7 @@ import { TVAdviserListItem } from "../TVAdviserListItem/TVAdviserListItem";
 export function TVAdviserList({ tvAdviserList, onClickItem }) {
   return (
     <>
-      <div className={s.title}>You make alse like : </div>
+      <div className={s.title}>You make also like : </div>
       <div className={s.list}>
         {tvAdviserList.map((tvAdviser) => {
           return (
